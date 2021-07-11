@@ -3,15 +3,13 @@ body {
   align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .container-root {
   margin: 0 auto;
   flex-direction: column;
   display: flex;
   align-items: center;
 }
-/* .imagem-pokemon , .nome-pokemon{
-    display: none;
-} */
 
 .show {
   display: auto;
@@ -20,11 +18,12 @@ body {
 h1 {
   color: #181818;
   font-size: 2rem;
-  font-family: 'Pokemon Solid', sans-serif;
+  font-family: "Pokemon Solid", sans-serif;
   font-style: italic;
   display: flex;
   justify-content: center;
 }
+
 .nome-pokemon {
   text-align: center;
   text-transform: capitalize;
@@ -67,4 +66,8 @@ h1 {
 
 .card-pokemon {
   height: 15rem;
+}
+
+.stats {
+  display: flex;
 }
