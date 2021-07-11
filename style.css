@@ -1,5 +1,10 @@
 body {
-  background-color: #06a18d3d;
+  background-color: rgba(6, 162, 142, 0.239);
+  background: 
+  linear-gradient(
+    rgba(6, 162, 142, 0.9),
+    rgba(6, 162, 142, 0.9)
+  ), url("http://wallpapercave.com/wp/ZqCwNUM.jpg");
   align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -29,7 +34,7 @@ h1 {
   text-transform: capitalize;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 700;
   color: #181818;
 }
 
@@ -69,6 +74,7 @@ h1 {
 }
 
 .stats {
+  font-size: 1.1rem;
   display: flex;
 }
 

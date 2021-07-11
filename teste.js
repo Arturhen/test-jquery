@@ -9,16 +9,14 @@ let imagemPixelada = false;
 atualizaPokemon();
 //calcula logaritmicamente a porcentagem da barra de status
 function calculaPorcentagemDabarra(a) {
-  return (Math.log10(a / 2.16) * 100) / 2;
+  return (Math.log10(a / 2.55) * 100) / 2;
 }
 
 var pokemonId;
 
 function atualizaPokemon() {
   pokemonId = parseInt(Math.random() * 898) + 1;
-
   urlPokemon = `https://pokeapi.co/api/v2/pokemon/` + pokemonId;
-
   $.get(urlPokemon, (dadosPokemon) => {
     namePokemon.textContent = `${dadosPokemon.name}`;
 
@@ -51,8 +49,7 @@ function pixelar() {
   setImagemPokemon();
 
   if (imagemPixelada) {
-    return (document.querySelector(".botao-pixed").textContent =
-      "Ver em HD");
+    return (document.querySelector(".botao-pixed").textContent = "Ver em HD");
   }
   document.querySelector(".botao-pixed").textContent = "Ver em Pixel";
 }
