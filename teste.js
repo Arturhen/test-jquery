@@ -4,6 +4,7 @@ const imagemPokemon = document.querySelector(".imagem-pokemon");
 const atributos = document.querySelectorAll(".atributo");
 const barrazinhas = document.querySelectorAll(".barrazinha");
 
+let imagemPixelada = false;
 //chama a primeira vez para nao deixar o site sem pokemon
 atualizaPokemon();
 //calcula logaritmicamente a porcentagem da barra de status
@@ -11,13 +12,10 @@ function calculaPorcentagemDabarra(a) {
   return (Math.log10(a / 2.16) * 100) / 2;
 }
 
-function atualizaPokemon() {
-  let pokemonId = parseInt(Math.random() * 878) + 1;
+var pokemonId;
 
-  urlImagem =
-    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
-    ("00" + pokemonId).slice(-3) +
-    ".png";
+function atualizaPokemon() {
+  pokemonId = parseInt(Math.random() * 898) + 1;
 
   urlPokemon = `https://pokeapi.co/api/v2/pokemon/` + pokemonId;
 
@@ -30,6 +28,31 @@ function atualizaPokemon() {
         calculaPorcentagemDabarra(dadosPokemon.stats[i].base_stat) + "%";
     }
   });
+  setImagemPokemon();
+}
 
+function setImagemPokemon() {
+  urlImagem =
+    "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
+    ("00" + pokemonId).slice(-3) +
+    ".png";
+
+  if (imagemPixelada) {
+    urlImagem =
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+      pokemonId +
+      ".png";
+  }
   imagemPokemon.innerHTML = ` <img class="card-pokemon" src=${urlImagem} >`;
+}
+
+function pixelar() {
+  imagemPixelada = !imagemPixelada;
+  setImagemPokemon();
+
+  if (imagemPixelada) {
+    return (document.querySelector(".botao-pixed").textContent =
+      "Ver em HD");
+  }
+  document.querySelector(".botao-pixed").textContent = "Ver em Pixel";
 }

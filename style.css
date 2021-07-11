@@ -71,3 +71,17 @@ h1 {
 .stats {
   display: flex;
 }
+
+.botao-pixed {
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 1.5rem;
+  background-color: #c085c0;
+  transition: 0.3s;
+}
+
+.botao-pixed:hover {
+  background-color: #8b5e8b;
+  transform: scale(1.1);
+}
