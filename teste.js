@@ -1,23 +1,12 @@
 const namePokemon = document.querySelector(".nome-pokemon");
 const imagemPokemon = document.querySelector(".imagem-pokemon");
 
-const hp = document.querySelector(".hp-pokemon");
-const atk = document.querySelector(".atk-pokemon");
-const def = document.querySelector(".def-pokemon");
-const spa = document.querySelector(".spa-pokemon");
-const spd = document.querySelector(".spd-pokemon");
-const spe = document.querySelector(".speed-pokemon");
+const atributos = document.querySelectorAll(".atributo")
 
-const barraDeHp = document.querySelector(".hp-barra");
-const barraDeAtk = document.querySelector(".atk-barra");
-const barraDeDef = document.querySelector(".def-barra");
-const barraDeSpa = document.querySelector(".spa-barra");
-const barraDeSpd = document.querySelector(".spd-barra");
-const barraDeSpeed = document.querySelector(".speed-barra");
+const barrazinhas = document.querySelectorAll(".barrazinha")
 
 //chama a primeira vez para nao deixar o site sem pokemon
 atualizaPokemon();
-
 //calcula logaritmicamente a porcentagem da barra de status
 function calculaPorcentagemDabarra(a) {
   return (Math.log10(a / 2.16) * 100) / 2;
@@ -25,6 +14,7 @@ function calculaPorcentagemDabarra(a) {
 
 function atualizaPokemon() {
   let pokemonId = parseInt(Math.random() * 878) + 1;
+
 
   urlImagem =
     "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
@@ -35,29 +25,30 @@ function atualizaPokemon() {
 
   $.get(urlPokemon, (dadosPokemon) => {
     namePokemon.textContent = `${dadosPokemon.name}`;
-    hp.textContent = `HP: ${dadosPokemon.stats[0].base_stat}`;
-    barraDeHp.style.width =
+    atributos[0].textContent = `HP: ${dadosPokemon.stats[0].base_stat}`;
+    barrazinhas[0].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[0].base_stat) + "%";
 
-    atk.textContent = `ATK: ${dadosPokemon.stats[1].base_stat}`;
-    barraDeAtk.style.width =
+    atributos[1].textContent = `ATK: ${dadosPokemon.stats[1].base_stat}`;
+    barrazinhas[1].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[1].base_stat) + "%";
 
-    def.textContent = `DEF: ${dadosPokemon.stats[2].base_stat}`;
-    barraDeDef.style.width =
+    atributos[2].textContent = `DEF: ${dadosPokemon.stats[2].base_stat}`;
+    barrazinhas[2].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[2].base_stat) + "%";
 
-    spa.textContent = `SpA: ${dadosPokemon.stats[3].base_stat}`;
-    barraDeSpa.style.width =
+    atributos[3].textContent = `SpA: ${dadosPokemon.stats[3].base_stat}`;
+    barrazinhas[3].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[3].base_stat) + "%";
 
-    spd.textContent = `SpD: ${dadosPokemon.stats[4].base_stat}`;
-    barraDeSpd.style.width =
+    atributos[4].textContent = `SpD: ${dadosPokemon.stats[4].base_stat}`;
+    barrazinhas[4].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[4].base_stat) + "%";
 
-    spe.textContent = `Speed: ${dadosPokemon.stats[5].base_stat}`;
-    barraDeSpeed.style.width =
+    atributos[5].textContent = `Speed: ${dadosPokemon.stats[5].base_stat}`;
+    barrazinhas[5].style.width =
       calculaPorcentagemDabarra(dadosPokemon.stats[5].base_stat) + "%";
+    
 
     console.log(dadosPokemon);
     console.log(dadosPokemon.id);
